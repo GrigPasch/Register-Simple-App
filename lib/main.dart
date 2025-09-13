@@ -69,13 +69,22 @@ class _MenuScreenState extends State<MenuScreen> {
     });
   }
 
+  void clearCart() {
+    setState(() {
+      cart.clear();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Παρχαράκης", style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700), ),),
+        title: Text(
+          "Παρχαράκης",
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+        ),
+      ),
       body: ListView.builder(
         itemCount: items.length,
         itemBuilder: (context, index) {
@@ -83,23 +92,30 @@ class _MenuScreenState extends State<MenuScreen> {
           final qty = cart[item] ?? 0;
           return ListTile(
             title: Text(
-                item.name,
-                style: TextStyle(fontWeight: FontWeight.w800),
+              item.name,
+              style: TextStyle(fontWeight: FontWeight.w800),
             ),
-            subtitle: Text("€${item.price.toStringAsFixed(2)}",
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
+            subtitle: Text(
+              "€${item.price.toStringAsFixed(2)}",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            ),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 IconButton(
-                  icon: Icon(Icons.remove,
-                              size: 24, weight: 600,),
+                  icon: Icon(Icons.remove, size: 24),
                   onPressed: qty > 0 ? () => removeItem(item) : null,
                 ),
-                Text(qty.toString(), style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),),
+                Container(
+                  width: 30,
+                  child: Text(
+                    qty.toString(),
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
                 IconButton(
-                  icon: Icon(Icons.add,
-                             size: 24, weight: 600),
+                  icon: Icon(Icons.add, size: 24),
                   onPressed: () => addItem(item),
                 ),
               ],
@@ -111,10 +127,17 @@ class _MenuScreenState extends State<MenuScreen> {
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Total: \$${total.toStringAsFixed(2)}",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800)),
+              Text(
+                  "Σύνολο: €${total.toStringAsFixed(2)}",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800)
+              ),
+              if (cart.isNotEmpty)
+                ElevatedButton(
+                  onPressed: clearCart,
+                  child: Text("Καθαρισμός"),
+                ),
             ],
           ),
         ),
@@ -122,4 +145,3 @@ class _MenuScreenState extends State<MenuScreen> {
     );
   }
 }
-
