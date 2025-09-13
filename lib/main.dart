@@ -43,7 +43,7 @@ class _MenuScreenState extends State<MenuScreen> {
     MenuItem(name: "Μπύρα", price: 2.5),
     MenuItem(name: "Coca-Cola", price: 2),
     MenuItem(name: "Αναψυκτικό", price: 1),
-    MenuItem(name: "Νερό", price: 0.5)
+    MenuItem(name: "Νερό", price: 0.6
   ];
 
   final Map<MenuItem, int> cart = {};

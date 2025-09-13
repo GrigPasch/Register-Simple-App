@@ -1,16 +1,47 @@
-# tameio
+Παρχαράκης - Greek Food Order App 🍖
+A Flutter mobile app for ordering food from a Greek taverna.
+Features
 
-A new Flutter project.
+Browse Greek menu items (Souvlaki, Tzatziki, Beer, etc.)
+Add/remove items from cart with + and - buttons
+Real-time total calculation in Euros
+Clean, mobile-first Greek interface
+Offline functionality
 
-## Getting Started
+Download Options
+📱 For Android Users (No Setup Required)
+Just want to use the app? Download and install directly:
 
-This project is a starting point for a Flutter application.
+Go to Releases
+Download the latest .apk file
+On your Android phone:
 
-A few resources to get you started if this is your first Flutter project:
+Enable "Install from unknown sources" in Settings → Security
+Open the downloaded APK file
+Tap "Install"
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Done! The app is ready to use
+
+💻 For Developers (Run from Source Code)
+Option 1: Download ZIP
+
+Click the green "Code" button above → "Download ZIP"
+Extract the ZIP file to your desired folder
+Open terminal/command prompt in the extracted folder
+Follow the setup steps below ⬇️
+
+Option 2: Clone Repository
+bashgit clone https://github.com/yourusername/greek-food-app.git
+cd greek-food-app
+Prerequisites for Development
+You need to install Flutter first
+Running the App Locally
+Step 1: Install Dependencies
+bashflutter pub get
+Step 2: Check Flutter Setup
+bashflutter doctor
+Fix any issues shown (Android Studio, VS Code, etc.)
+Step 3: Run the App
+On Android Device/Emulator:
+bashflutter run
